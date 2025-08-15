@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Simple TV Show Tracker Simulator
-Runs every 2 minutes and either queries or updates data
+Runs every interval and either queries or updates data
 """
 
 import requests
@@ -11,8 +11,8 @@ import json
 from datetime import datetime
 
 # Configuration
-API_BASE_URL = "http://localhost:5000/api"  # Change to your EC2 IP if running remotely
-INTERVAL_SECONDS = 120  # 2 minutes
+API_BASE_URL = "http://localhost:5000/api"
+INTERVAL_SECONDS = 20  # 20 seconds
 
 # Sample data for simulation
 USERS = ["alice", "bob", "charlie", "diana", "eve"]
