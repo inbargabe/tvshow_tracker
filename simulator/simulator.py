@@ -12,7 +12,7 @@ from datetime import datetime
 
 # Configuration
 API_BASE_URL = "http://localhost:5000/api"
-INTERVAL_SECONDS = 20  # 20 seconds
+INTERVAL_SECONDS = 10  # 20 seconds
 
 # Sample data for simulation
 USERS = ["alice", "bob", "charlie", "diana", "eve"]
