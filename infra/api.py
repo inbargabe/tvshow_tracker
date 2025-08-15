@@ -13,7 +13,7 @@ dynamodb = boto3.resource('dynamodb')
 
 def get_table():
     """Get DynamoDB table instance"""
-    table_name = current_app.config.get('DYNAMODB_TABLE', 'tv_show_tracker')
+    table_name = current_app.config.get('DYNAMODB_TABLE', 'tv_show_tracker_fake')
     return dynamodb.Table(table_name)
 
 
