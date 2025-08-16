@@ -20,7 +20,6 @@ def get_table():
 @api_blueprint.route('/show_episode', methods=['GET'])
 @log_api_call
 @track_metrics
-@send_http_metrics
 def show_episode():
     """Get current season and episode for a user's TV show"""
     username = request.args.get('username')
@@ -64,7 +63,6 @@ def show_episode():
 @api_blueprint.route('/show_user', methods=['GET'])
 @log_api_call
 @track_metrics
-@send_http_metrics
 def show_user():
     """Get all TV shows a user is watching"""
     username = request.args.get('username')
@@ -106,7 +104,6 @@ def show_user():
 @api_blueprint.route('/update_episode', methods=['POST'])
 @log_api_call
 @track_metrics
-@send_http_metrics
 def update_episode():
     """Add or update episode information for a user's TV show"""
     data = request.get_json()
@@ -171,7 +168,6 @@ def update_episode():
 @api_blueprint.route('/show_all', methods=['GET'])
 @log_api_call
 @track_metrics
-@send_http_metrics
 def show_all():
     """Get all entries in the table"""
     try:

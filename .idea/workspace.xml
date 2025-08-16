@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef835844-a9f2-4d2e-9355-11d2c90717e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/telegraf.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/decorator.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/decorator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755264013995</updated>
-      <workItem from="1755264016463" duration="12000000" />
+      <workItem from="1755264016463" duration="13352000" />
     </task>
     <servers />
   </component>

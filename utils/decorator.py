@@ -2,7 +2,6 @@ import functools
 import time
 import logging
 import boto3
-import requests
 from flask import request, g
 from datetime import datetime
 
@@ -206,74 +205,6 @@ def send_metrics_to_cloudwatch(endpoint, method, status_code, duration, success,
     except Exception as e:
         # Don't let metrics failure break the application
         logger.error(f"Failed to send metrics to CloudWatch: {str(e)}")
-
-
-def send_http_metrics(func):
-    """Send metrics directly to Telegraf HTTP endpoint"""
-
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        endpoint = getattr(g, 'endpoint', request.endpoint or 'unknown')
-
-        try:
-            result = func(*args, **kwargs)
-            duration = time.time() - start_time
-
-            # Prepare metric data
-            metric_data = {
-                "fields": {
-                    "response_time": duration * 1000,
-                    "request_count": 1,
-                    "success": 1
-                },
-                "tags": {
-                    "endpoint": endpoint,
-                    "method": request.method,
-                    "status": "success"
-                },
-                "measurement": "flask_app_metrics"
-            }
-
-            # Send to Telegraf (async to avoid blocking)
-            try:
-                requests.post(
-                    "http://localhost:8080/telegraf",
-                    json=metric_data,
-                    timeout=1
-                )
-            except:
-                pass  # Don't let metrics failure break the app
-
-            return result
-
-        except Exception as e:
-            duration = time.time() - start_time
-
-            # Send error metric
-            metric_data = {
-                "fields": {
-                    "response_time": duration * 1000,
-                    "request_count": 1,
-                    "error": 1
-                },
-                "tags": {
-                    "endpoint": endpoint,
-                    "method": request.method,
-                    "status": "error",
-                    "error_type": type(e).__name__
-                },
-                "measurement": "flask_app_metrics"
-            }
-
-            try:
-                requests.post("http://localhost:8080/telegraf", json=metric_data, timeout=1)
-            except:
-                pass
-
-            raise
-
-    return wrapper
 
 def log_database_operation(operation_type):
     """Decorator specifically for database operations"""
