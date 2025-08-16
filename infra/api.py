@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, current_app
 import boto3
 from botocore.exceptions import ClientError
-from utils.decorator import log_api_call, track_metrics, send_http_metrics
+from utils.decorator import log_api_call, track_metrics
 import logging
 
 logger = logging.getLogger(__name__)
