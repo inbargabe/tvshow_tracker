@@ -9,7 +9,7 @@ def create_app():
     app = Flask(__name__)
 
     # Configuration
-    app.config['AWS_REGION'] = os.environ.get('AWS_REGION', 'us-east-1')
+    app.config['AWS_REGION'] = os.environ.get('AWS_REGION', 'eu-central-1')
     app.config['DYNAMODB_TABLE'] = os.environ.get('DYNAMODB_TABLE', 'tv_show_tracker')
 
     # Configure logging

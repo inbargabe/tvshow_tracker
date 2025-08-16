@@ -12,7 +12,7 @@ from datetime import datetime
 
 # Configuration
 API_BASE_URL = "http://localhost:5000/api"
-INTERVAL_SECONDS = 10  # 20 seconds
+INTERVAL_SECONDS = 10
 
 # Sample data for simulation
 USERS = ["alice", "bob", "charlie", "diana", "eve"]
@@ -119,10 +119,10 @@ def update_episode():
 def run_simulation():
     """Main simulation function"""
     actions = [
-        ("Query All Data", query_all_data, 0.2),  # 20% chance
-        ("Query User Data", query_user_data, 0.3),  # 30% chance
-        ("Query Episode", query_specific_episode, 0.2),  # 20% chance
-        ("Update Episode", update_episode, 0.3)  # 30% chance
+        ("Query All Data", query_all_data, 0.2),
+        ("Query User Data", query_user_data, 0.3),
+        ("Query Episode", query_specific_episode, 0.2),
+        ("Update Episode", update_episode, 0.3)
     ]
 
     # Choose action based on weights
@@ -142,7 +142,7 @@ def run_simulation():
 
 
 def main():
-    """Main function to run the simulator"""
+
     log_message("Starting TV Show Tracker Simulator")
     log_message(f"API Base URL: {API_BASE_URL}")
     log_message(f"Interval: {INTERVAL_SECONDS} seconds")
