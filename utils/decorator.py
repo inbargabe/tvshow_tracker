@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 # Initialize CloudWatch client
 cloudwatch = boto3.client('cloudwatch')
 
+BATCH_INTERVAL = 60
 
 def log_api_call(func):
     """Decorator to log API calls with basic dimensions"""
